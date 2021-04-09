@@ -41,8 +41,10 @@ namespace ConsoleApp1
         {
             //Poczatkowa populacja
             var population = _individualGenerator.GenerateList(populationAmount, numberOfBits, a, b);
-            DataSaver ds = new DataSaver();
-            ds.createFile();
+            DataSaver dataSaver = new DataSaver();
+            dataSaver.createFile();
+
+            var bestIndividuals = new List<Individual>();
 
             for (int i = 0; i < epochsAmount; i++)
             {
@@ -73,10 +75,12 @@ namespace ConsoleApp1
                     }
                 }
 
-                ds.saveIndividualsFromEpoche(i, newPopulation);
+                bestIndividuals.AddRange(_selekcjaNajlepszych.Select(newPopulation, 1.0 / (newPopulation.Count), maximization)); // dodanie najlepszego do listy
+                dataSaver.saveIndividualsFromEpoche(i, newPopulation);
                 population = newPopulation;
             }
 
+            dataSaver.saveChart(bestIndividuals);
             return population;
         }
 
