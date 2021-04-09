@@ -68,18 +68,94 @@ const App = () => {
         <div className="App">
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo"/>
-                <p>
-                    Edit <code>src/App.tsx</code> and save to reload.
-                </p>
-                <p>Input something like <code>1 + 1</code>.</p>
-                <p>
-                    This calculator supports <code>+-*/^()</code>,
-                    whitespaces, and integers and floating numbers.
-                </p>
+             <h1>Booth function</h1>
                 <input
                     style={{ color:"black" }}
                     onKeyDown={handleKeyDown}
                 />
+
+    <form>
+        <label>
+            Minimalny X (parametr a):
+        <input type="text" name="parametera" />
+        </label>
+        <br />
+        <label>
+            Maksymalny X (parametr b):
+        <input type="text" name="parametera" />
+        </label>
+        <br />
+        <label>
+            Liczebnosc populacji:
+        <input type="text" name="parametera" />
+        </label>
+        <br />
+        <label>
+            Liczba bitow:
+        <input type="text" name="parametera" />
+        </label>
+        <br />
+        <label>
+            Liczba epok:
+        <input type="text" name="parametera" />
+        </label>
+        <br />
+        <label>
+            Liczba chromossom w selekcji najlepszych i turniejowej:
+        <input type="text" name="parametera" />
+        </label>
+        <br />
+        <label>
+            Procent osobnikow do strategii elitarnej (ulamek):
+        <input type="text" name="parametera" />
+        </label>
+        <br />
+        <label>
+            Prawdopodobienstwo krzyzowania:
+        <input type="text" name="parametera" />
+        </label>
+        <br />
+        <label>
+            Prawdopodobienstwo mutacji:
+        <input type="text" name="parametera" />
+        </label>
+        <br />
+        <label>
+            Prawdopodobienstwo inwersji:
+        <input type="text" name="parametera" />
+        </label>
+        <br />
+        <label>
+            Metoda selekcji
+        <select>
+            <option value="best">Selekcja najlepszych</option>
+            <option value="kolo">Selekcja 'kolo ruletki'</option>
+            <option selected value="turniej">Selekcja turniejowa</option>
+        </select>
+        </label>
+        <br />
+        <label>
+            Metoda krzyzowania
+        <select>
+            <option value="jednopunktowe">Krzyzowanie jednopunktowe</option>
+            <option value="dwupunktowe">Krzyzowanie dwupunktowe</option>
+            <option selected value="jednorodne">Krzyzowanie jednorodne</option>
+        </select>
+        </label>
+        <br />
+        <label>
+            Metoda Mutacji
+        <select>
+            <option value="jednopunktowa">Mutacja jednopunktowa</option>
+            <option value="dwupunktowa">Mutacja dwupunktowa</option>
+            <option selected value="brzegowa">Mutacja brzegowa</option>
+        </select>
+        </label>
+        <br />
+        <input type="submit" value="Start" />
+       
+    </form>
+    
                 <div>
                     {mathResult}
                 </div>
