@@ -8,7 +8,7 @@ namespace ConsoleApp1
     {
         public List<Individual> Select(List<Individual> individuals, int amountOfSpins)
         {
-            List<Individual> winners = null;
+            List<Individual> winners = new List<Individual>();
 
             for(int i=0;i<amountOfSpins;i++)
             {

@@ -3,10 +3,10 @@ F:\SourceCode\Projekt_OE\PROJEKT\electron-dotnet\dotnet\oe\bin\Debug\netcoreapp2
 F:\SourceCode\Projekt_OE\PROJEKT\electron-dotnet\dotnet\oe\bin\Debug\netcoreapp2.1\ConsoleApp1.runtimeconfig.dev.json
 F:\SourceCode\Projekt_OE\PROJEKT\electron-dotnet\dotnet\oe\bin\Debug\netcoreapp2.1\ConsoleApp1.dll
 F:\SourceCode\Projekt_OE\PROJEKT\electron-dotnet\dotnet\oe\bin\Debug\netcoreapp2.1\ConsoleApp1.pdb
-F:\SourceCode\Projekt_OE\PROJEKT\electron-dotnet\dotnet\oe\obj\Debug\netcoreapp2.1\ConsoleApp1.csprojAssemblyReference.cache
 F:\SourceCode\Projekt_OE\PROJEKT\electron-dotnet\dotnet\oe\obj\Debug\netcoreapp2.1\ConsoleApp1.AssemblyInfoInputs.cache
 F:\SourceCode\Projekt_OE\PROJEKT\electron-dotnet\dotnet\oe\obj\Debug\netcoreapp2.1\ConsoleApp1.AssemblyInfo.cs
 F:\SourceCode\Projekt_OE\PROJEKT\electron-dotnet\dotnet\oe\obj\Debug\netcoreapp2.1\ConsoleApp1.csproj.CoreCompileInputs.cache
 F:\SourceCode\Projekt_OE\PROJEKT\electron-dotnet\dotnet\oe\obj\Debug\netcoreapp2.1\ConsoleApp1.dll
 F:\SourceCode\Projekt_OE\PROJEKT\electron-dotnet\dotnet\oe\obj\Debug\netcoreapp2.1\ConsoleApp1.pdb
 F:\SourceCode\Projekt_OE\PROJEKT\electron-dotnet\dotnet\oe\obj\Debug\netcoreapp2.1\ConsoleApp1.genruntimeconfig.cache
+F:\SourceCode\Projekt_OE\PROJEKT\electron-dotnet\dotnet\oe\obj\Debug\netcoreapp2.1\ConsoleApp1.csprojAssemblyReference.cache
