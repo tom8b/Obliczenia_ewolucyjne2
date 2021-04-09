@@ -41,6 +41,8 @@ namespace ConsoleApp1
         {
             //Poczatkowa populacja
             var population = _individualGenerator.GenerateList(populationAmount, numberOfBits, a, b);
+            DataSaver ds = new DataSaver();
+            ds.createFile();
 
             for (int i = 0; i < epochsAmount; i++)
             {
@@ -71,6 +73,7 @@ namespace ConsoleApp1
                     }
                 }
 
+                ds.saveIndividualsFromEpoche(i, newPopulation);
                 population = newPopulation;
             }
 
