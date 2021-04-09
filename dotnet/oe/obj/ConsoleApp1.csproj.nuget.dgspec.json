@@ -48,6 +48,10 @@
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
+            },
+            "OxyPlot.Core": {
+              "target": "Package",
+              "version": "[2.1.0-Preview1, )"
             }
           },
           "imports": [
