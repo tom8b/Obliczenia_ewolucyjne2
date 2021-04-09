@@ -132,11 +132,13 @@ public class CalcQuery : ObjectGraphType
                         break;
                 }
 
+                var stopwatch = new Stopwatch();
+                stopwatch.Start();
                 var strategy = new Strategy(new IndividualGenerator(), new SelekcjaNajlepszych(), new SelekcjaTurniejowa(), new SelekcjaRuletka(), new KrzyzowanieJednopunktowe(), new KrzyzowanieDwupunktowe(), new KrzyzowanieJednorodne(), new MutacjaJednopunktowa(), new MutacjaDwupunktowa(), new MutacjaBrzegowa(), new Inwersja());
                 var res = strategy.Execute(a, b, populationAmount, numberOfBits, epochsAmount,
                     bestAndTournamentChomosomeAmount, eliteStrategyAmount, crossProbability, mutationProbability,
                     inversionProbability, selectionEnum, crossEnum, muatationEnum, maximization);
-
+                stopwatch.Stop();
                 Individual winner;
                 double x1;
                 double x2;
@@ -156,13 +158,13 @@ public class CalcQuery : ObjectGraphType
                 }
 
 
-
+                string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+                    stopwatch.Elapsed.Hours, stopwatch.Elapsed.Minutes, stopwatch.Elapsed.Seconds,
+                    stopwatch.Elapsed.Milliseconds / 10);
                 //var result = Calc.Eval(math);
-                var result = $"Wynik: ({x1}, {x2}) = {winner.FunctionResult}";
+                var result = $"Wynik: ({x1}, {x2}) = {winner.FunctionResult}. Czas: {elapsedTime}";
                 return Convert.ToString(result);
             }
-
-
         );
     }
 
