@@ -28,7 +28,7 @@ namespace ConsoleApp1
                 randomNumber = random.Next(1, numberOfBits - 1);
             }
 
-            return differentThan;
+            return randomNumber;
         }
     }
 }

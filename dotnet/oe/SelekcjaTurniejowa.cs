@@ -9,22 +9,17 @@ namespace ConsoleApp1
     {
         public List<Individual> SelectDouble(List<Individual> individuals, int k, bool maximalization = true) 
         {
-            var ordered = individuals.OrderByDescending(x => x.FunctionResult);
-
             Random random = new Random();
 
-            List<Individual> winners = null;
-            Individual winner = null;
+            List<Individual> winners = new List<Individual>();
 
-            var mixedIndividuals = individuals.OrderBy(x => random.Next()).ToArray();
+            var mixedIndividuals = individuals.OrderBy(x => random.Next());
 
-            for (var i = 0; i < (float)mixedIndividuals.Length / 3; i++)
+            for (var i = 0; i < mixedIndividuals.Count() / 3; i++)
             {
                 var x = mixedIndividuals.Skip(i * 3).Take(3);
-                winners.Append(maximalization ?  x.Max() : x.Min());
+                winners.Add(maximalization ?  x.OrderByDescending(z => z.FunctionResult).First() : x.OrderBy(z => z.FunctionResult).First());
             }
-
-            winner = winners.OrderByDescending(item => item.FunctionResult).First();
 
             return winners;
         }

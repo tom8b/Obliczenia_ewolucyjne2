@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Threading;
 
 namespace ConsoleApp1
 {
@@ -39,6 +41,7 @@ namespace ConsoleApp1
 
         public List<Individual> Execute(int a, int b, int populationAmount, int numberOfBits, int epochsAmount, double bestAndTournamentChomosomeAmount, double eliteStrategyAmount, double crossProbability, double mutationProbability, double inversionProbability, SelectionMethod selectionMethod, CrossMethod crossMethod, MutationMethod mutationMethod, bool maximization)
         {
+         
             //Poczatkowa populacja
             var population = _individualGenerator.GenerateList(populationAmount, numberOfBits, a, b);
             DataSaver dataSaver = new DataSaver();

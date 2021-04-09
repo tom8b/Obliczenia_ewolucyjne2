@@ -12,12 +12,6 @@ namespace dotnetcore
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("DSSDASDADSADAS");
-            Console.WriteLine("DSSDASDADSADAS");
-            Console.WriteLine("DSSDASDADSADAS");
-            Console.WriteLine("DSSDASDADSADAS");
-            Console.WriteLine("DSSDASDADSADAS");
-            Console.WriteLine("DSSDASDADSADAS");
             var app = new CommandLineApplication(throwOnUnexpectedArg: false);
             var optionSigningKey = app.Option("--signingkey <SigningKey>", "Signing Key", CommandOptionType.SingleValue);
             var optionApiPort = app.Option("--apiport <PORT>", "Port number", CommandOptionType.SingleValue);

@@ -1,4 +1,5 @@
-﻿using GraphQL;
+﻿using System.Diagnostics;
+using GraphQL;
 using GraphQL.Http;
 using GraphQL.Server;
 using GraphQL.Server.Ui.Playground;
@@ -14,6 +15,7 @@ namespace dotnetcore
     {
         public void ConfigureServices(IServiceCollection services)
         {
+      
             services.AddCors();
 
             services.AddSingleton<IDependencyResolver>(s => new FuncDependencyResolver(s.GetRequiredService));
