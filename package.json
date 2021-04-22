@@ -40,7 +40,6 @@
         "react": "^16.8.4",
         "react-dom": "^16.8.4",
         "react-scripts": "3.0.1",
-        "shx": "^0.3.2",
         "superagent": "^5.0.2",
         "typescript": "^3.3.3333",
         "uuid": "^3.3.2"
@@ -50,6 +49,7 @@
         "cross-env": "^5.2.0",
         "electron": "4.1.0",
         "electron-builder": "^20.39.0",
+        "shx": "^0.3.3",
         "source-map-support": "^0.5.11",
         "tslint": "^5.9.1",
         "tslint-config-standard": "^7.0.0",
