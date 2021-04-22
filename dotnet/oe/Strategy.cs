@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading;
 
 namespace ConsoleApp1
@@ -48,7 +49,7 @@ namespace ConsoleApp1
             dataSaver.createFile();
 
             var bestIndividuals = new List<Individual>();
-
+            Debugger.Launch();
             for (int i = 0; i < epochsAmount; i++)
             {
                 //Selekcja
@@ -57,7 +58,7 @@ namespace ConsoleApp1
                 var newPopulation = new List<Individual>();
 
                 // strategia elitarna - wez X procent najlepszych do nowej populacji
-                newPopulation.AddRange(_selekcjaNajlepszych.Select(afterSelection, eliteStrategyAmount, maximization));
+                newPopulation.AddRange(_selekcjaNajlepszych.Select(population, eliteStrategyAmount, maximization));
 
                 //Mutacja, krzyzowanie i inwersja
                 while (newPopulation.Count < population.Count)
@@ -78,7 +79,7 @@ namespace ConsoleApp1
                     }
                 }
 
-                bestIndividuals.AddRange(_selekcjaNajlepszych.Select(newPopulation, 1.0 / (newPopulation.Count), maximization)); // dodanie najlepszego do listy
+                bestIndividuals.Add(maximization ? newPopulation.OrderByDescending(x => x.FunctionResult).First() : newPopulation.OrderBy(x => x.FunctionResult).First());  // dodanie najlepszego do listy
                 dataSaver.saveIndividualsFromEpoche(i, newPopulation);
                 population = newPopulation;
             }

@@ -1,24 +1,24 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "ffe745711bd1f1ef75e0471528ce9d5361d5ffb6"
+    "signature": ""
   },
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v2.1": {
       "ConsoleApp1/1.0.0": {
         "dependencies": {
-          "OxyPlot.Core": "2.0.0"
+          "OxyPlot.Core": "2.1.0-Preview1"
         },
         "runtime": {
           "ConsoleApp1.dll": {}
         }
       },
-      "OxyPlot.Core/2.0.0": {
+      "OxyPlot.Core/2.1.0-Preview1": {
         "runtime": {
-          "lib/netstandard1.0/OxyPlot.dll": {
-            "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.0.0.0"
+          "lib/netstandard2.0/OxyPlot.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
           }
         }
       }
@@ -30,12 +30,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "OxyPlot.Core/2.0.0": {
+    "OxyPlot.Core/2.1.0-Preview1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-gAbLVa+DxMNk1qtfzDQVU+lZ7XKRCKqQu6oYRFB1f6wVqseHL2EMk5Nlmw2rqkYEGHhxUxsPdjjAgJtzKVDacA==",
-      "path": "oxyplot.core/2.0.0",
-      "hashPath": "oxyplot.core.2.0.0.nupkg.sha512"
+      "sha512": "sha512-RHP7AXyiVXArMIkdIbhf5SbcO5iXg3UPZmzI8y5HpxQq0nHDMFMvWDcd1v/zlhUCX5/uSCDLCl1xxd1V1OWBmQ==",
+      "path": "oxyplot.core/2.1.0-preview1",
+      "hashPath": "oxyplot.core.2.1.0-preview1.nupkg.sha512"
     }
   }
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "6svAYE+b1DiCh8+/PmXVF6ZJ5pZcNagOHFCvwK8f8WKMdhTsKyoZG8hbpbxBLE6udOHKKj5qEopADaUr665zBw==",
+  "dgSpecHash": "j3E7QYx9QAq9CIdpC+MxW+JZ0D46l9tt7sOM591CpY4euf8e5WsGExe/7zFKiPoqC3Q+YCmTWNH+UrhWucCRsA==",
   "success": true,
   "projectFilePath": "F:\\SourceCode\\Projekt_OE\\PROJEKT\\electron-dotnet\\dotnet\\oe\\ConsoleApp1.csproj",
   "expectedPackageFiles": [
@@ -10,7 +10,8 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.dotnethostresolver\\2.1.0\\microsoft.netcore.dotnethostresolver.2.1.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\2.1.0\\microsoft.netcore.platforms.2.1.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.targets\\2.1.0\\microsoft.netcore.targets.2.1.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\tomek\\.nuget\\packages\\oxyplot.core\\2.1.0-preview1\\oxyplot.core.2.1.0-preview1.nupkg.sha512"
   ],
   "logs": []
 }

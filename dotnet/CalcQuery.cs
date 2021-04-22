@@ -73,7 +73,6 @@ public class CalcQuery : ObjectGraphType
                 {
                     return "invalid signature";
                 }
-                Debugger.Launch();
                 //var math = context.GetArgument<string>("math");
                 var a = int.Parse(context.GetArgument<string>("a"));
                 var b = int.Parse(context.GetArgument<string>("b"));
@@ -168,27 +167,5 @@ public class CalcQuery : ObjectGraphType
         );
     }
 
-    private void DoWork()
-    {
-        var strategy = new Strategy(new IndividualGenerator(), new SelekcjaNajlepszych(), new SelekcjaTurniejowa(), new SelekcjaRuletka(), new KrzyzowanieJednopunktowe(), new KrzyzowanieDwupunktowe(), new KrzyzowanieJednorodne(), new MutacjaJednopunktowa(), new MutacjaDwupunktowa(), new MutacjaBrzegowa(), new Inwersja());
-        var maximization = false;
-        var result = strategy.Execute(-10, 10, 10, 10, 3, 0.2, 0.2, 0.4, 0.2, 0.2, SelectionMethod.BEST, CrossMethod.ONE_POINT, MutationMethod.ONE_POINT, maximization);
-
-        double x1;
-        double x2;
-        int y;
-
-        if (maximization)
-        {
-            var winner = result.OrderByDescending(x => x.FunctionResult).First();
-            x1 = winner.GetX1Dec();
-            x2 = winner.GetX2Dec();
-        }
-        else
-        {
-            var winner = result.OrderBy(x => x.FunctionResult).First();
-            x1 = winner.GetX1Dec();
-            x2 = winner.GetX2Dec();
-        }
-    }
+   
 }
