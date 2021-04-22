@@ -14,42 +14,31 @@ namespace ConsoleApp1
         private readonly SelekcjaTurniejowa _selekcjaTurniejowa;
         private readonly SelekcjaRuletka _selekcjaRuletka;
 
-        private readonly KrzyzowanieJednopunktowe _krzyzowanieJednopunktowe;
-        private readonly KrzyzowanieDwupunktowe _krzyzowanieDwupunktowe;
-        private readonly KrzyzowanieJednorodne _krzyzowanieJednorodne;
+        //private readonly KrzyzowanieJednopunktowe _krzyzowanieJednopunktowe;
+        //private readonly KrzyzowanieDwupunktowe _krzyzowanieDwupunktowe;
+        //private readonly KrzyzowanieJednorodne _krzyzowanieJednorodne;
 
-        private readonly MutacjaJednopunktowa _mutacjaJednopunktowa;
-        private readonly MutacjaDwupunktowa _mutacjaDwupunktowa;
-        private readonly MutacjaBrzegowa _mutacjaBrzegowa;
-        private readonly Inwersja _inwersja;
+        //private readonly MutacjaJednopunktowa _mutacjaJednopunktowa;
+        //private readonly MutacjaBrzegowa _mutacjaBrzegowa;
+        //private readonly Inwersja _inwersja;
 
-        public Strategy(IndividualGenerator individualGenerator, SelekcjaNajlepszych selekcjaNajlepszych, SelekcjaTurniejowa selekcjaTurniejowa,SelekcjaRuletka selekcjaRuletka,
-            KrzyzowanieJednopunktowe krzyzowanieJednopunktowe, KrzyzowanieDwupunktowe krzyzowanieDwupunktowe, KrzyzowanieJednorodne krzyzowanieJednorodne,
-            MutacjaJednopunktowa mutacjaJednopunktowa, MutacjaDwupunktowa mutacjaDwupunktowa, MutacjaBrzegowa mutacjaBrzegowa, Inwersja inwersja)
+        public Strategy(IndividualGenerator individualGenerator, SelekcjaNajlepszych selekcjaNajlepszych, SelekcjaTurniejowa selekcjaTurniejowa,SelekcjaRuletka selekcjaRuletka)
         {
             _individualGenerator = individualGenerator;
             _selekcjaNajlepszych = selekcjaNajlepszych;
             _selekcjaRuletka = selekcjaRuletka;
-            _selekcjaTurniejowa = selekcjaTurniejowa;           
-            _krzyzowanieJednopunktowe = krzyzowanieJednopunktowe;
-            _krzyzowanieDwupunktowe = krzyzowanieDwupunktowe;
-            _krzyzowanieJednorodne = krzyzowanieJednorodne;
-            _mutacjaJednopunktowa = mutacjaJednopunktowa;
-            _mutacjaDwupunktowa = mutacjaDwupunktowa;
-            _mutacjaBrzegowa = mutacjaBrzegowa;
-            _inwersja = inwersja;
+            _selekcjaTurniejowa = selekcjaTurniejowa;
         }
 
         public List<Individual> Execute(int a, int b, int populationAmount, int numberOfBits, int epochsAmount, double bestAndTournamentChomosomeAmount, double eliteStrategyAmount, double crossProbability, double mutationProbability, double inversionProbability, SelectionMethod selectionMethod, CrossMethod crossMethod, MutationMethod mutationMethod, bool maximization)
         {
          
             //Poczatkowa populacja
-            var population = _individualGenerator.GenerateList(populationAmount, numberOfBits, a, b);
+            var population = _individualGenerator.GenerateList(populationAmount, a, b);
             DataSaver dataSaver = new DataSaver();
             dataSaver.createFile();
 
-            var bestIndividuals = new List<Individual>();
-            Debugger.Launch();
+            var bestIndividuals = new List<double>();
             for (int i = 0; i < epochsAmount; i++)
             {
                 //Selekcja
@@ -73,13 +62,17 @@ namespace ConsoleApp1
                         newPopulation.Add(Mutuj(mutationMethod, afterSelection, a, b));
                     }
 
-                    if (ShouldPerformAction(inversionProbability) && newPopulation.Count < population.Count)
-                    {
-                        newPopulation.Add(Inwersuj(afterSelection, a, b));
-                    }
+                    //if (ShouldPerformAction(inversionProbability) && newPopulation.Count < population.Count)
+                    //{
+                    //    newPopulation.Add(Inwersuj(afterSelection, a, b));
+                    //}
                 }
 
-                bestIndividuals.Add(maximization ? newPopulation.OrderByDescending(x => x.FunctionResult).First() : newPopulation.OrderBy(x => x.FunctionResult).First());  // dodanie najlepszego do listy
+                var bestIndividual = maximization
+                    ? newPopulation.OrderByDescending(x => x.FunctionResult).First()
+                    : newPopulation.OrderBy(x => x.FunctionResult).First();
+
+                bestIndividuals.Add(bestIndividual.FunctionResult);  // dodanie najlepszego do listy
                 dataSaver.saveIndividualsFromEpoche(i, newPopulation);
                 population = newPopulation;
             }
@@ -88,11 +81,11 @@ namespace ConsoleApp1
             return population;
         }
 
-        private Individual Inwersuj(List<Individual> population, int a, int b)
-        {
-            var randomIndividual = GetRandomIndividual(population);
-            return _inwersja.Inwersuj(randomIndividual, a, b);
-        }
+        //private Individual Inwersuj(List<Individual> population, int a, int b)
+        //{
+        //    var randomIndividual = GetRandomIndividual(population);
+        //    return _inwersja.Inwersuj(randomIndividual, a, b);
+        //}
 
         private Individual Mutuj(MutationMethod mutationMethod, List<Individual> population, int a, int b)
         {
@@ -100,12 +93,10 @@ namespace ConsoleApp1
 
             switch (mutationMethod)
             {
-                case MutationMethod.ONE_POINT:
-                    return _mutacjaJednopunktowa.Mutuj(randomIndividual);
-                case MutationMethod.TWO_POINT:
-                    return _mutacjaDwupunktowa.Mutuj(randomIndividual);
-                case MutationMethod.BRZEGOWA:
-                    return _mutacjaBrzegowa.Mutuj(randomIndividual);
+                //case MutationMethod.ONE_POINT:
+                //    return _mutacjaJednopunktowa.Mutuj(randomIndividual);
+                //case MutationMethod.BRZEGOWA:
+                //    return _mutacjaBrzegowa.Mutuj(randomIndividual);
                 default:
                     throw new NotImplementedException();
             }
@@ -149,12 +140,12 @@ namespace ConsoleApp1
 
             switch (crossMethod)
             {
-                case CrossMethod.ONE_POINT:
-                    return _krzyzowanieJednopunktowe.Krzyzuj(twoRandomIndividuals[0], twoRandomIndividuals[1], a, b);
-                case CrossMethod.TWO_POINT:
-                    return _krzyzowanieDwupunktowe.Krzyzuj(twoRandomIndividuals[0], twoRandomIndividuals[1], a, b);
-                case CrossMethod.JEDNORODNE:
-                    return _krzyzowanieJednorodne.Krzyzuj(twoRandomIndividuals[0], twoRandomIndividuals[1], a, b);
+                //case CrossMethod.ONE_POINT:
+                    //return _krzyzowanieJednopunktowe.Krzyzuj(twoRandomIndividuals[0], twoRandomIndividuals[1], a, b);
+                //case CrossMethod.TWO_POINT:
+                    //return _krzyzowanieDwupunktowe.Krzyzuj(twoRandomIndividuals[0], twoRandomIndividuals[1], a, b);
+                //case CrossMethod.JEDNORODNE:
+                    //return _krzyzowanieJednorodne.Krzyzuj(twoRandomIndividuals[0], twoRandomIndividuals[1], a, b);
                 default:
                     throw new NotImplementedException();
             }

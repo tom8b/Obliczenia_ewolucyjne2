@@ -17,7 +17,7 @@ namespace ConsoleApp1
                 w.WriteLine($"#{epoche}#");
                 foreach (var individual in individuals)
                 {
-                    w.WriteLine($"X1:{individual.GetX1Dec()} X2:{individual.GetX2Dec()} Y:{individual.FunctionResult}\n");
+                    w.WriteLine($"X1:{individual.X1} X2:{individual.X2} Y:{individual.FunctionResult}\n");
                 }
 
                 return true;
@@ -33,7 +33,7 @@ namespace ConsoleApp1
             }
         }
 
-        public void saveChart(List<Individual> individuals)
+        public void saveChart(List<double> individuals)
         {
             var line1 = new OxyPlot.Series.LineSeries
             {
@@ -46,7 +46,7 @@ namespace ConsoleApp1
 
             for (int i = 0; i < individuals.Count; i++)
             {
-                line1.Points.Add(new DataPoint(i + 1, individuals[i].FunctionResult));
+                line1.Points.Add(new DataPoint(i + 1, individuals[i]));
             }
 
             var model = new PlotModel

@@ -133,7 +133,7 @@ public class CalcQuery : ObjectGraphType
 
                 var stopwatch = new Stopwatch();
                 stopwatch.Start();
-                var strategy = new Strategy(new IndividualGenerator(), new SelekcjaNajlepszych(), new SelekcjaTurniejowa(), new SelekcjaRuletka(), new KrzyzowanieJednopunktowe(), new KrzyzowanieDwupunktowe(), new KrzyzowanieJednorodne(), new MutacjaJednopunktowa(), new MutacjaDwupunktowa(), new MutacjaBrzegowa(), new Inwersja());
+                var strategy = new Strategy(new IndividualGenerator(), new SelekcjaNajlepszych(), new SelekcjaTurniejowa(), new SelekcjaRuletka());
                 var res = strategy.Execute(a, b, populationAmount, numberOfBits, epochsAmount,
                     bestAndTournamentChomosomeAmount, eliteStrategyAmount, crossProbability, mutationProbability,
                     inversionProbability, selectionEnum, crossEnum, muatationEnum, maximization);
@@ -146,14 +146,14 @@ public class CalcQuery : ObjectGraphType
                 if (maximization)
                 {
                     winner = res.OrderByDescending(x => x.FunctionResult).First();
-                    x1 = winner.GetX1Dec();
-                    x2 = winner.GetX2Dec();
+                    x1 = winner.X1;
+                    x2 = winner.X2;
                 }
                 else
                 {
                     winner = res.OrderBy(x => x.FunctionResult).First();
-                    x1 = winner.GetX1Dec();
-                    x2 = winner.GetX2Dec();
+                    x1 = winner.X1;
+                    x2 = winner.X2;
                 }
 
 
